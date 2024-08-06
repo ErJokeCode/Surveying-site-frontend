@@ -1,0 +1,115 @@
+.application {
+    width: 570px;
+    justify-self: center;
+    flex-direction: column;
+}
+  
+.title {
+    margin-bottom: 25px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 48px;
+    line-height: 59px;
+    color: #000000;
+}
+
+.input {
+    margin-bottom: 25px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    padding-left: 24px;
+    border-radius: 16px;
+    border: 0;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 200%;
+    color: #252525;
+    background-color:  #ffffff;
+    outline: 2px solid #3a3a3a;
+    transition: background-color .3s ease-in-out;
+}
+
+.input:hover {
+    background-color: #dddddd;
+}
+
+.input:focus {
+    background-color:  #dddddd;
+}
+
+.input:active {
+    background-color:  #dddddd;
+}
+
+.input_message {
+    height: 122px;
+    margin-bottom: 30px;
+}
+
+.send_btn {
+    margin-right: 20px;
+    padding: 19px 52px;
+    border-radius: 16px;
+    font-family: var(--font-family);
+    font-weight: 700;
+    font-size: 16px;
+    text-align: center;
+    color: #fff;
+    background: var(--color-btn);
+    transition: background-color .3s ease-in-out;
+  }
+  
+  .send_btn:hover {
+    background-color: var(--color-btn-hover);
+  }
+  
+  .send_btn:focus {
+    background-color: var(--color-btn-hover);
+  }
+  
+  .send_btn:active {
+    background-color: var(--color-btn-active);
+  }
+  
+  .send_checkbox {
+    position: relative;
+    align-items: center;
+  }
+  
+  .send_checkbox__input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0;
+  }
+  
+  .send_checkbox span::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 14px;
+    height: 14px;
+    margin-right: 10px;
+    border: 1px solid #adb5bd;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+  }
+  
+  .send_checkbox span {
+    padding-left: 20px;
+    font-family: var(--font-family);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 200%;
+    color: #cacaca;
+  }
+  
+  .send_checkbox__input:checked ~ span::before {
+    background-image: url("./Check.svg");
+  }

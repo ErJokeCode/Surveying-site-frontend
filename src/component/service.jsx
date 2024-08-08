@@ -1,23 +1,21 @@
 import { useState } from "react";
 
-export default function Service({title, descr, image, price, id, chooseServices, setChooseServise, setOnClickID, onClick}) {
-
-
+export default function Service({title, descr, image, price, id, chooseServices, setChooseServise, setOnClickID, onClick, setBucket}) {
     const chooseItem = () => {
         if(!localStorage.getItem("bucket")){
             localStorage.setItem("bucket", JSON.stringify([{id, title, descr, price}]))
         }
-        var bucket = JSON.parse(localStorage.getItem("bucket"));
+        var bk = JSON.parse(localStorage.getItem("bucket"));
 
-        console.log(bucket.findIndex(el => el.id === id))
-        if(!bucket.find(el => el.id === id && el.title === title)){
-            bucket.push({id, title, descr, price})
-            localStorage.setItem("bucket", JSON.stringify(bucket))
+        if(!bk.find(el => el.id === id && el.title === title)){
+            bk.push({id, title, descr, price})
+            localStorage.setItem("bucket", JSON.stringify(bk))
         }
+        setBucket(JSON.parse(localStorage.getItem("bucket")))
     }
 
     return(
-        <li id={id} tabindex="0" class="services__item" onClick={(m) => {chooseItem(); onClick(true)}}>
+        <li id={id} tabindex="0" class={`services__item ${image ? null : "services__item_without_img"}`} onClick={(m) => {chooseItem(); onClick(true)}}>
             {image ? <img src={image} alt="icon" class="service__img"/> : null}
 
             <h3 class="services__item__title">
